@@ -49,13 +49,14 @@
                 </div>
             </div>
         </div>
+
         <!-- Table with stripped rows -->
         <table class="table datatable">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    {{-- <th scope="col">Image</th> --}}
                     <th scope="col">Title</th>
+                    <th scope="col">Image</th>
                     <th scope="col">Content</th>
                     <th scope="col">Posted At</th>
                     <th scope="col">Last Updated</th>
@@ -68,8 +69,9 @@
                     <tr wire:key="{{ $post->id }}">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $post->title }}</td>
-                        {{-- <td><img height="40px" width="40px" src="{{ asset('storage/images/' . $post->photo) }}"
-                                alt="post image"></td> --}}
+                        <td><img height="50px" width="50px" style="border-radius: 50%"
+                                src="{{ asset('storage/images/' . $post->photo) }}" alt="post image">
+                        </td>
                         <td>{{ str($post->content)->words(10) }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>{{ $post->updated_at }}</td>

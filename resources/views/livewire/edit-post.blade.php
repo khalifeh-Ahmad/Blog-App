@@ -27,7 +27,7 @@
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
-            {{-- <div class="col-sm-10">
+            <div class="col-sm-10">
                 <div class="form-floating mb-3">
                     <input type="file" class="form-control" placeholder="post details" wire:model="photo"
                         id="">
@@ -36,9 +36,9 @@
                 @error('photo')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
-            </div> --}}
+            </div>
             <button type="submit" class="btn btn-primary">Update</button>
-            <a href="/user/dashboard" wire:navigate class="btn btn-secondary">cancel</a>
+            <a href="/my/posts" wire:navigate class="btn btn-secondary">cancel</a>
     </div>
     </form>
 </div>

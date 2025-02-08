@@ -4,13 +4,16 @@ namespace App\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditPost extends Component
 {
+  use WithFileUploads;
 
   public Post $post;
   public $title;
   public $content;
+  public  $photo;
 
   public function mount($postData)
   {
@@ -24,13 +27,22 @@ class EditPost extends Component
     $this->validate([
       'title' => 'required',
       'content' => 'required',
-      //'photo' => 'required',
     ]);
+    if ($this->photo == null) {
+      Post::where('id', $this->post->id)->update([
+        'title' => $this->title,
+        'content' => $this->content,
+      ]);
+    } else {
+      $photo_name = md5($this->photo . microtime()) . '.' . $this->photo->extension();
+      $this->photo->storeAs('public/images', $photo_name);
+      Post::where('id', $this->post->id)->update([
+        'title' => $this->title,
+        'content' => $this->content,
+        'photo' => $photo_name,
+      ]);
+    }
 
-    Post::where('id', $this->post->id)->update([
-      'title' => $this->title,
-      'content' => $this->content,
-    ]);
     session()->flash('message', 'The post Updated Successfully');
     return $this->redirect('/my/posts', navigate: true);
   }
