@@ -1,146 +1,86 @@
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title">My Posts</h5>
-
-
-
+        <h5 class="card-title"> My Dashboard</h5>
         <div class="row">
-
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-                <div class="card info-card sales-card">
-
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
+            <div class="col">
+                <div class="card" style="background-color: #98a0e3; font-size:20px;">
+                    <div class="card-body text-center text-white">
+                        Followers
                     </div>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Sales <span>| Today</span></h5>
-
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-cart"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>145</h6>
-                                <span class="text-success small pt-1 fw-bold">12%</span> <span
-                                    class="text-muted small pt-2 ps-1">increase</span>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-                <div class="card info-card revenue-card">
-
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Revenue <span>| This Month</span></h5>
-
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-currency-dollar"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>$3,264</h6>
-                                <span class="text-success small pt-1 fw-bold">8%</span> <span
-                                    class="text-muted small pt-2 ps-1">increase</span>
-
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-                <div class="card info-card customers-card">
-
-                    <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Filter</h6>
-                            </li>
-
-                            <li><a class="dropdown-item" href="#">Today</a></li>
-                            <li><a class="dropdown-item" href="#">This Month</a></li>
-                            <li><a class="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="card-body">
-                        <h5 class="card-title">Customers <span>| This Year</span></h5>
-
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-people"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6>1244</h6>
-                                <span class="text-danger small pt-1 fw-bold">12%</span> <span
-                                    class="text-muted small pt-2 ps-1">decrease</span>
-
-                            </div>
-                        </div>
-
+                    <div class="card-footer text-center text-white" style="background-color: #98a0e3">
+                        100{{-- {{ $follower_count }} --}}
                     </div>
                 </div>
+            </div>
 
-            </div><!-- End Customers Card -->
+            <div class="col">
+                <div class="card" style="background-color: #b71012; font-size:20px;">
+                    <div class="card-body text-center text-white">
+                        Likes
+                    </div>
+                    <div class="card-footer text-center text-white" style="background-color: #b71012">
+                        99910{{-- {{ $follower_count }} --}}
+                    </div>
+                </div>
+            </div>
+
+            {{-- <livewire:post-data-counter /> --}}
+            <div class="col">
+                <div class="card" style="background-color: #3ade9f; font-size:20px;">
+                    <div class="card-body text-center text-white">
+                        Comments
+                    </div>
+                    <div class="card-footer text-center text-white" style="background-color: #3ade9f">
+                        1333{{-- {{ $comment_count }} --}}
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="background-color: #e3a598; font-size:20px;">
+                    <div class="card-body text-center text-white">
+                        Posts
+                    </div>
+                    <div class="card-footer text-center text-white" style="background-color: #e3a598">
+                        {{ $post_count }}
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <!-- Table with stripped rows -->
-    <table class="table datatable">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Title</th>
-                <th scope="col">Content</th>
-                <th scope="col"data-type="date" data-format="YYYY/DD/MM">Posted At</th>
-                <th scope="col">Last Updated</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($posts as $post)
-                <tr wire:key="{{ $post->id }}">
-                    <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{ $post->title }}</td>
-                    <td>{{ $post->content }}</td>
-                    <td>{{ $post->created_at }}</td>
-                    <td>{{ $post->updated_at }}</td>
+        <!-- Table with stripped rows -->
+        <table class="table datatable">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    {{-- <th scope="col">Image</th> --}}
+                    <th scope="col">Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Posted At</th>
+                    <th scope="col">Last Updated</th>
+                    {{-- <th scope="col" colspan="2">Actions</th> --}}
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <!-- End Table with stripped rows -->
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                    {{-- for livewire to keep track and work efficient with loops use keys to uniquely identify each row in a loop --}}
+                    <tr wire:key="{{ $post->id }}">
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>{{ $post->title }}</td>
+                        {{-- <td><img height="40px" width="40px" src="{{ asset('storage/images/' . $post->photo) }}"
+                                alt="post image"></td> --}}
+                        <td>{{ str($post->content)->words(10) }}</td>
+                        <td>{{ $post->created_at }}</td>
+                        <td>{{ $post->updated_at }}</td>
+                        {{-- <td><a href="/edit/post/{{ $post->id }}" wire:navigate
+                                class="btn btn-primary btn-sm">Edit</a></td>
+                        <td><button wire:click="deletePost({{ $post->id }})"
+                                wire:confirm="Are you sure you want to delete this?"
+                                class="btn btn-danger btn-sm">Delete</button></td> --}}
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <!-- End Table with stripped rows -->
 
+    </div>
 </div>
