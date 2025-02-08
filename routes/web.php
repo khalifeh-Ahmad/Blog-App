@@ -27,8 +27,10 @@ Route::get('/reset/password', [AuthController::class, 'loadResetPassword']);
 Route::post('/reset/user/password', [AuthController::class, 'ResetPassword'])->name('ResetPassword');
 
 Route::get('/user/dashboard', [UserController::class, 'dashboardPage'])->middleware('user');
+
 Route::get('/my/posts', [UserController::class, 'loadMyPosts'])->middleware('user');
 Route::get('/create/post', [UserController::class, 'loadCreatePost'])->middleware('user');
+Route::get('/edit/post/{post_id}', [UserController::class, 'loadEditPost'])->middleware('user');
 
 
 

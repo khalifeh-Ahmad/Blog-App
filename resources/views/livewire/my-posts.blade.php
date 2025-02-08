@@ -1,52 +1,54 @@
 <div class="card">
+    @if (session()->has('message'))
+        <script>
+            Swal.fire({
+                title: 'Success!',
+                text: '{{ session('message') }}',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            });
+        </script>
+    @endif
     <div class="card-body">
         <h5 class="card-title"> My Dashboard</h5>
-        <div class="row">
-            <div class="col">
-                <div class="card" style="background-color: #98a0e3; font-size:20px;">
-                    <div class="card-body text-center text-white">
-                        Followers
-                    </div>
-                    <div class="card-footer text-center text-white" style="background-color: #98a0e3">
-                        100{{-- {{ $follower_count }} --}}
-                    </div>
+
+        <div class="row g-4 mb-5" wire:poll>
+            <div class="col-sm-6 col-md-3">
+                <div class="stats-card followers">
+                    <div class="icon">👥</div>
+                    <h6 class="font-weight-bold">Followers</h6>
+                    <p class="display-4 mb-0">{{ $follower_count ?? '100' }}</p>
+                    <div class="stats-card-footer">Total Followers</div>
                 </div>
             </div>
 
-            <div class="col">
-                <div class="card" style="background-color: #b71012; font-size:20px;">
-                    <div class="card-body text-center text-white">
-                        Likes
-                    </div>
-                    <div class="card-footer text-center text-white" style="background-color: #b71012">
-                        99910{{-- {{ $follower_count }} --}}
-                    </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="stats-card likes">
+                    <div class="icon">❤️</div>
+                    <h6 class="font-weight-bold">Likes</h6>
+                    <p class="display-4 mb-0">{{ $like_count ?? '99910' }}</p>
+                    <div class="stats-card-footer">Total Likes</div>
                 </div>
             </div>
 
-            {{-- <livewire:post-data-counter /> --}}
-            <div class="col">
-                <div class="card" style="background-color: #3ade9f; font-size:20px;">
-                    <div class="card-body text-center text-white">
-                        Comments
-                    </div>
-                    <div class="card-footer text-center text-white" style="background-color: #3ade9f">
-                        1333{{-- {{ $comment_count }} --}}
-                    </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="stats-card comments">
+                    <div class="icon">💬</div>
+                    <h6 class="font-weight-bold">Comments</h6>
+                    <p class="display-4 mb-0">{{ $comment_count ?? '1333' }}</p>
+                    <div class="stats-card-footer">Total Comments</div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card" style="background-color: #e3a598; font-size:20px;">
-                    <div class="card-body text-center text-white">
-                        Posts
-                    </div>
-                    <div class="card-footer text-center text-white" style="background-color: #e3a598">
-                        {{ $post_count }}
-                    </div>
+
+            <div class="col-sm-6 col-md-3" wire:poll>
+                <div class="stats-card posts">
+                    <div class="icon">📝</div>
+                    <h6 class="font-weight-bold">Posts</h6>
+                    <p class="display-4 mb-0">{{ $post_count ?? '0' }}</p>
+                    <div class="stats-card-footer">Total Posts</div>
                 </div>
             </div>
         </div>
-
         <!-- Table with stripped rows -->
         <table class="table datatable">
             <thead>
@@ -57,7 +59,7 @@
                     <th scope="col">Content</th>
                     <th scope="col">Posted At</th>
                     <th scope="col">Last Updated</th>
-                    {{-- <th scope="col" colspan="2">Actions</th> --}}
+                    <th scope="col" colspan="2">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,11 +73,13 @@
                         <td>{{ str($post->content)->words(10) }}</td>
                         <td>{{ $post->created_at }}</td>
                         <td>{{ $post->updated_at }}</td>
-                        {{-- <td><a href="/edit/post/{{ $post->id }}" wire:navigate
+                        <td><a href="/edit/post/{{ $post->id }}" wire:navigate
                                 class="btn btn-primary btn-sm">Edit</a></td>
+                        <td>
                         <td><button wire:click="deletePost({{ $post->id }})"
                                 wire:confirm="Are you sure you want to delete this?"
-                                class="btn btn-danger btn-sm">Delete</button></td> --}}
+                                class="btn btn-danger btn-sm">Delete</button></td>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
