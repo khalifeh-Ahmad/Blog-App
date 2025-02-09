@@ -115,8 +115,9 @@
                         <div class="post-meta">
                             <i class="bi bi-calendar"></i>
                             <span>{{ date('D M Y, h:i:s A', strtotime($post_data->created_at)) }}</span> <br>
-                            <span>🖊️ By {{ $post_data->name }}</span>
+                            <span class="text-capitalized">🖊️ By {{ $post_data->name }}</span>
                         </div>
+                        <livewire:like-component :postId='$post_data->id' />
                         <h2>{{ $post_data->title }}</h2>
                         <p>{{ $post_data->content }}</p>
                     </div>

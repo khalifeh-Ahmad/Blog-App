@@ -43,8 +43,9 @@ class UserController extends Controller
   public function loadPostPage($pId)
   {
     $loggedUser = $this->getLoggedUser();
-    $post_data = Post::join('users', 'user_id', '=', 'posts.user_id')
+    $post_data = Post::join('users', 'users.id', '=', 'posts.user_id')
       ->where('posts.id', $pId)->first(['users.name', 'posts.*']);
+
     return view('user.view-post', compact('loggedUser', 'post_data'));
   }
 }

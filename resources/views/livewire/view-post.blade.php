@@ -70,10 +70,11 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $post->title }}</h5>
                     <p>{{ str($post->content)->words(15) }}...</p>
+                    <a href="/view/post/{{ $post->id }}" wire:navigate class="read-more">Read More →</a>
                 </div>
                 <div class="post-card-footer">
                     <span>🖊️ By {{ $post->name }}</span>
-                    <a href="/view/post/{{ $post->id }}" class="read-more">Read More →</a>
+
                 </div>
             </div>
         </div>

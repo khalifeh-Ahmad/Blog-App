@@ -1282,3 +1282,31 @@ h6 {
 .posts {
   background: linear-gradient(135deg, #f8b627, #e6a21a);
 }
+
+
+
+/* like component */
+
+.like-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.like-icon {
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.like-icon:hover {
+  transform: scale(1.2);
+}
+
+.liked {
+  color: red;
+}
+
+/* End like component */
