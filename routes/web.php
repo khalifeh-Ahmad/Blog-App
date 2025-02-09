@@ -31,7 +31,7 @@ Route::get('/user/dashboard', [UserController::class, 'dashboardPage'])->middlew
 Route::get('/my/posts', [UserController::class, 'loadMyPosts'])->middleware('user');
 Route::get('/create/post', [UserController::class, 'loadCreatePost'])->middleware('user');
 Route::get('/edit/post/{post_id}', [UserController::class, 'loadEditPost'])->middleware('user');
-
+Route::get('/view/post/{id}', [UserController::class, 'loadPostPage'])->middleware('user');
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'dashboardPage'])->middleware('admin');
