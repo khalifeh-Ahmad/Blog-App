@@ -12,12 +12,12 @@
         border-radius: 15px;
         backdrop-filter: blur(10px);
         overflow: hidden;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+        /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
+        /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); */ */
     }
 
     .post-card:hover {
-        transform: translateY(-2px);
+        /* transform: translateY(-2px); */
         box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.25);
     }
 
@@ -113,13 +113,18 @@
                     <img src="{{ asset('storage/images/' . $post_data->photo) }}" alt="Post Image" class="card-img-top">
                     <div class="card-body">
                         <div class="post-meta">
+                            <livewire:like-component :postId='$post_data->id' />
                             <i class="bi bi-calendar"></i>
                             <span>{{ date('D M Y, h:i:s A', strtotime($post_data->created_at)) }}</span> <br>
                             <span class="text-capitalized">🖊️ By {{ $post_data->name }}</span>
+
                         </div>
-                        <livewire:like-component :postId='$post_data->id' />
+
                         <h2>{{ $post_data->title }}</h2>
                         <p>{{ $post_data->content }}</p>
+                        <hr>
+                        <h6 class="card-title">Leave a comment</h6>
+                        <livewire:post-comment :postId='$post_data->id' />
                     </div>
                 </div>
             </div>

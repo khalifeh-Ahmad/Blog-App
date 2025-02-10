@@ -13,34 +13,21 @@
         <h5 class="card-title"> My Dashboard</h5>
 
         <div class="row g-4 mb-5" wire:poll>
-            <div class="col-sm-6 col-md-3">
+            {{-- <div class="col-sm-6 col-md-3">
                 <div class="stats-card followers">
                     <div class="icon">👥</div>
                     <h6 class="font-weight-bold">Followers</h6>
                     <p class="display-4 mb-0">{{ $follower_count ?? '100' }}</p>
                     <div class="stats-card-footer">Total Followers</div>
                 </div>
-            </div>
+            </div> --}}
+            <livewire:post-data-counter type="followers" />
 
-            <livewire:post-data-counter />
+            <livewire:post-data-counter type="likes" />
 
-            <div class="col-sm-6 col-md-3">
-                <div class="stats-card comments">
-                    <div class="icon">💬</div>
-                    <h6 class="font-weight-bold">Comments</h6>
-                    <p class="display-4 mb-0">{{ $comment_count ?? '1333' }}</p>
-                    <div class="stats-card-footer">Total Comments</div>
-                </div>
-            </div>
+            <livewire:post-data-counter type="comments" />
 
-            <div class="col-sm-6 col-md-3" wire:poll>
-                <div class="stats-card posts">
-                    <div class="icon">📝</div>
-                    <h6 class="font-weight-bold">Posts</h6>
-                    <p class="display-4 mb-0">{{ $post_count ?? '0' }}</p>
-                    <div class="stats-card-footer">Total Posts</div>
-                </div>
-            </div>
+            <livewire:post-data-counter type="posts" />
         </div>
 
         <!-- Table with stripped rows -->

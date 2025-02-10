@@ -1250,7 +1250,7 @@ h6 {
 }
 
 .stats-card:hover {
-  transform: translateY(-8px);
+  /* transform: translateY(-8px); */
   box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.25);
 }
 
@@ -1290,13 +1290,14 @@ h6 {
 .like-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
+  margin-top: 8px;
   font-size: 1rem;
   color: #666;
 }
 
 .like-icon {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.2s ease, color 0.3s ease;
 }
@@ -1310,3 +1311,204 @@ h6 {
 }
 
 /* End like component */
+
+
+
+/* Post Card */
+
+/* Modern card design */
+.post-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.post-card:hover {
+  /* transform: translateY(-1px); */
+  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.post-card img {
+  height: 250px;
+  object-fit: fill;
+  border-radius: 15px 15px 0 0;
+}
+
+.post-card .card-body {
+  padding: 10px;
+}
+
+.post-card .card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.post-card p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.post-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 15px 15px;
+}
+
+.post-card-footer span {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.read-more {
+  text-decoration: none;
+  font-weight: bold;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* end post card */
+
+
+/* Comment Box */
+.comment-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment Input */
+.comment-input {
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.comment-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Comment Button */
+.comment-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.comment-btn:hover {
+  background: #0056b3;
+}
+
+/* Comment List */
+.comment-list {
+  margin-top: 20px;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.comment-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  margin-right: 12px;
+  object-fit: cover;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-author {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.comment-text {
+  font-size: 0.95rem;
+  color: #555;
+  margin: 5px 0 0;
+}
+
+.no-comments {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* end comment */
+
+
+
+/* Follow */
+
+.follow-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: 2px solid #007bff;
+  background: transparent;
+  color: #007bff;
+}
+
+.follow-btn:hover {
+  background: #007bff;
+  color: white;
+  transform: scale(1.05);
+}
+
+.followed {
+  background: #28a745 !important;
+  border-color: #28a745 !important;
+  color: white !important;
+}
+
+.followed:hover {
+  background: #218838 !important;
+}
+
+.followers-icon {
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+.followers-count {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #666;
+}
+
+/* end follow */

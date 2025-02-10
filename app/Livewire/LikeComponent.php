@@ -11,7 +11,6 @@ class LikeComponent extends Component
   public $post_id;
   public $isLiked;
 
-
   public function mount($postId)
   {
     $this->post_id = $postId;
