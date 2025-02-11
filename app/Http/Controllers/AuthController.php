@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PasswordReset;
 use App\Models\User;
+use App\Models\UserProfile;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Http\Request;
@@ -39,6 +40,12 @@ class AuthController extends Controller
       $user->username = $request->username;
       $user->password = Hash::make($request->password);
       $user->save();
+      //add user_id in user_profiles table
+      $user_profile = new UserProfile;
+      $user_profile->user_id = $user->id;
+      $user_profile->save();
+
+
       return redirect('/register')->with('success', 'You have been registered');
     } catch (Exception $e) {
 

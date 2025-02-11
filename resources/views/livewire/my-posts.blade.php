@@ -13,14 +13,7 @@
         <h5 class="card-title"> My Dashboard</h5>
 
         <div class="row g-4 mb-5" wire:poll>
-            {{-- <div class="col-sm-6 col-md-3">
-                <div class="stats-card followers">
-                    <div class="icon">👥</div>
-                    <h6 class="font-weight-bold">Followers</h6>
-                    <p class="display-4 mb-0">{{ $follower_count ?? '100' }}</p>
-                    <div class="stats-card-footer">Total Followers</div>
-                </div>
-            </div> --}}
+
             <livewire:post-data-counter type="followers" />
 
             <livewire:post-data-counter type="likes" />

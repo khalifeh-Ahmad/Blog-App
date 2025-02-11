@@ -48,4 +48,10 @@ class UserController extends Controller
 
     return view('user.view-post', compact('loggedUser', 'post_data'));
   }
+
+  public function loadProfile()
+  {
+    $loggedUser = $this->getLoggedUser();
+    return view('user.user-profile', compact('loggedUser'));
+  }
 }
