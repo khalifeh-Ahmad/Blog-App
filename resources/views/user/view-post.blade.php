@@ -117,10 +117,13 @@
                             <livewire:like-component :postId='$post_data->id' />
                             <i class="bi bi-calendar"></i>
                             <span>{{ date('D M Y, h:i:s A', strtotime($post_data->created_at)) }}</span> <br>
-                            <img src="{{ asset('storage/images/' . $user_image) }}"
-                                style="width: 30px !important; height: 30px !important;" alt="user Image"
-                                class="rounded-circle">
-                            <span class="text-capitalized">🖊️ By {{ $post_data->name }}</span>
+                            <a href="/view/profile/{{ $post_data->user_id }}" wire:navigate>
+                                <img src="{{ asset('storage/images/' . $user_image) }}"
+                                    style="width: 30px !important; height: 30px !important;" alt="user Image"
+                                    class="rounded-circle">
+                                <span>🖊️ By {{ $post_data->name }}</span>
+                            </a>
+
                             <livewire:follow-component :followedId="$post_data->user_id" />
                         </div>
 
@@ -138,31 +141,8 @@
                 <div class="card related-posts">
                     <div class="card-body">
                         <h5 class="card-title">More Posts from {{ $post_data->name }}</h5>
-                        <div class="news">
-                            <div class="related-post-item">
-                                <img src="assets/img/news-1.jpg" alt="">
-                                <div>
-                                    <h6><a href="#">Nihil blanditiis at in nihil autem</a></h6>
-                                    <p>Sit recusandae non aspernatur laboriosam...</p>
-                                </div>
-                            </div>
 
-                            <div class="related-post-item">
-                                <img src="assets/img/news-2.jpg" alt="">
-                                <div>
-                                    <h6><a href="#">Quidem autem et impedit</a></h6>
-                                    <p>Illo nemo neque maiores vitae officiis...</p>
-                                </div>
-                            </div>
-
-                            <div class="related-post-item">
-                                <img src="assets/img/news-3.jpg" alt="">
-                                <div>
-                                    <h6><a href="#">Id quia et et ut maxime</a></h6>
-                                    <p>Fugiat voluptas vero eaque accusantium eos...</p>
-                                </div>
-                            </div>
-                        </div><!-- End sidebar recent posts -->
+                        <livewire:related-posts :userId="$post_data->user_id" />
                     </div>
                 </div>
             </div>

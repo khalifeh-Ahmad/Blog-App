@@ -16,7 +16,7 @@
         @if (count($postComments) > 0)
             @foreach ($postComments as $item)
                 <div class="comment-item">
-                    <img src="{{ asset('storage/avatars/' . ($item->avatar ?? 'default-avatar.png')) }}" alt="Avatar"
+                    <img src="{{ asset('storage/images/' . ($item->image ?? 'default-avatar.png')) }}" alt="Avatar"
                         class="comment-avatar">
                     <div class="comment-content">
                         <span class="comment-author">{{ $item->name }}</span>

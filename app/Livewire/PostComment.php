@@ -14,7 +14,8 @@ class PostComment extends Component
   {
     $this->post_id = $postId;
     $this->postComments = Comment::join('users', 'users.id', '=', 'comments.user_id')
-      ->where('post_id', $this->post_id)->get(['users.name', 'comments.*']);
+      ->join('user_profiles', 'user_profiles.user_id', '=', 'users.id')
+      ->where('post_id', $this->post_id)->get(['users.name', 'comments.*', 'user_profiles.image']);
   }
 
   public function leaveComment()
