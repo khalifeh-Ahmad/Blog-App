@@ -75,4 +75,12 @@ class UserController extends Controller
 
     return view('user.guest-profile', compact('loggedUser', 'guest_id', 'user_image'));
   }
+
+
+  public function loadFollowersPage()
+  {
+    $loggedUser = $this->getLoggedUser();
+    $user_image = $this->getUserImage($loggedUser->id);
+    return view('user.follower-page', compact('loggedUser', 'user_image'));
+  }
 }

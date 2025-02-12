@@ -24,6 +24,14 @@ class FollowComponent extends Component
   public function followUnFollow()
   {
     $user_id = auth()->user()->id;
+
+    // Prevent user from following themselves
+    if ($user_id == $this->followed_Id) {
+      session()->flash('error', 'You cannot follow yourself.');
+      return;
+    }
+
+
     $checker = Follower::where([['follower_id', $user_id], ['followed_id', $this->followed_Id]])
       ->first();
 

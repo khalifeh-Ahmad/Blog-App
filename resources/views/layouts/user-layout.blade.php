@@ -285,6 +285,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link collapsed" href="/followers" wire:navigate>
+                    <i class="bi bi-person-hearts"></i>
+                    <span>My Followers</span>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="/profile" wire:navigate>
                     <i class="bi bi-person"></i>
                     <span>Profile</span>

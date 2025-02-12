@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Livewire\FollowersPage;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -34,6 +35,9 @@ Route::get('/edit/post/{post_id}', [UserController::class, 'loadEditPost'])->mid
 Route::get('/view/post/{id}', [UserController::class, 'loadPostPage'])->middleware('user');
 Route::get('/profile', [UserController::class, 'loadProfile'])->middleware('user');
 Route::get('/view/profile/{user_id}', [UserController::class, 'loadGuestProfile'])->middleware('user');
+Route::get('/followers', [UserController::class, 'loadFollowersPage'])->middleware('user');
+
+//Route::get('/followers', FollowersPage::class)->name('followers')->middleware('user');
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'dashboardPage'])->middleware('admin');
