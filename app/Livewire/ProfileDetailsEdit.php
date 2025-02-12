@@ -21,10 +21,21 @@ class ProfileDetailsEdit extends Component
   public $linkedin;
   public $instagram;
 
-  public function mount($fullName)
+  public $user_data;
+
+  public function mount($fullName, $user_data)
   {
     $this->fullName = $fullName;
+    $this->user_data = $user_data;
+    $this->about = $user_data->about ?? '';
+    $this->company = $user_data->company ?? '';
+    $this->job = $user_data->job ?? '';
+    $this->country = $user_data->country ?? '';
+    $this->address = $user_data->address ?? '';
+    $this->phone = $user_data->phone ?? '';
+    //[dd($this->user_data);
   }
+
   public function editUser()
   {
     $this->validate([

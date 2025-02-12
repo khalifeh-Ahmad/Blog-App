@@ -2,12 +2,8 @@
     .viewers-container {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        gap: 6px;
-        font-size: 0.95rem;
-        color: #666;
-        margin-top: 8px;
-        padding-left: 45%;
+        gap: 4px;
+        font-size: 1rem;
     }
 
     .viewers-icon {

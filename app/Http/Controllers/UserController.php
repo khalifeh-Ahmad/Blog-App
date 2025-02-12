@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +19,8 @@ class UserController extends Controller
   public function dashboardPage()
   {
     $loggedUser = $this->getLoggedUser();
-    return view('user.home-page', compact('loggedUser'));
+    $user_image = UserProfile::where('user_id',   $loggedUser->id)->first()->image;
+    return view('user.home-page', compact('loggedUser', 'user_image'));
   }
 
   public function loadMyPosts()
@@ -45,13 +47,21 @@ class UserController extends Controller
     $loggedUser = $this->getLoggedUser();
     $post_data = Post::join('users', 'users.id', '=', 'posts.user_id')
       ->where('posts.id', $pId)->first(['users.name', 'posts.*']);
-
-    return view('user.view-post', compact('loggedUser', 'post_data'));
+    $user_image = UserProfile::where('user_id',   $loggedUser->id)->first()->image; //(['image']);
+    //dd($user_image);
+    return view('user.view-post', compact('loggedUser', 'post_data', 'user_image'));
   }
 
   public function loadProfile()
   {
     $loggedUser = $this->getLoggedUser();
     return view('user.user-profile', compact('loggedUser'));
+  }
+
+  public function loadGuestProfile($id)
+  {
+    $loggedUser = $this->getLoggedUser();
+    $guest_id = $id;
+    return view('user.guest-profile', compact('loggedUser', 'guest_id'));
   }
 }

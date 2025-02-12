@@ -13,7 +13,8 @@
         backdrop-filter: blur(10px);
         overflow: hidden;
         /* transition: transform 0.3s ease, box-shadow 0.3s ease; */
-        /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); */ */
+        /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15); */
+        */
     }
 
     .post-card:hover {
@@ -116,8 +117,11 @@
                             <livewire:like-component :postId='$post_data->id' />
                             <i class="bi bi-calendar"></i>
                             <span>{{ date('D M Y, h:i:s A', strtotime($post_data->created_at)) }}</span> <br>
+                            <img src="{{ asset('storage/images/' . $user_image) }}"
+                                style="width: 30px !important; height: 30px !important;" alt="user Image"
+                                class="rounded-circle">
                             <span class="text-capitalized">🖊️ By {{ $post_data->name }}</span>
-
+                            <livewire:follow-component :followedId="$post_data->user_id" />
                         </div>
 
                         <h2>{{ $post_data->title }}</h2>

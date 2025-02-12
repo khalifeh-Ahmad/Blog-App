@@ -98,7 +98,7 @@
 
                         <livewire:profile-image-edit :existingImage="$user_data->image" />
                         {{-- <livewire:profile-image-edit :existingImage="$user_data->image ?? 'default-profile.jpg'" /> --}}
-                        <livewire:profile-details-edit :fullName="$user_data->name ?? ''" />
+                        <livewire:profile-details-edit :fullName="$user_data->name ?? ''" :user_data="$user_data" />
 
                     </div>
 

@@ -1,5 +1,3 @@
-{{-- this page will be a layout meaning that other pages will extend this one --}}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -206,7 +204,9 @@
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
                         data-bs-toggle="dropdown">
-                        {{-- <img class="rounded-circle" width="30px" height="30px" src="" alt="profile image"> --}}
+                        <img src="{{ asset('storage/images/' . $user_image) }}"
+                            style="width: 30px !important; height: 30px !important;" alt="user img"
+                            class="rounded-circle">
                         <span class="d-none d-md-block dropdown-toggle ps-2">{{ $loggedUser->name }}</span>
                     </a><!-- End Profile Iamge Icon -->
 
@@ -290,8 +290,6 @@
                     <span>Profile</span>
                 </a>
             </li><!-- End Profile Page Nav -->
-
-
 
         </ul>
 

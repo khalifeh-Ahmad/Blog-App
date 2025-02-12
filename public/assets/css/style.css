@@ -1291,7 +1291,7 @@ h6 {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-top: 8px;
+  margin-top: 2px;
   font-size: 1rem;
   color: #666;
 }
@@ -1364,6 +1364,20 @@ h6 {
 .post-card-footer span {
   font-size: 0.85rem;
   color: #555;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stats-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .read-more {

@@ -33,6 +33,7 @@ Route::get('/create/post', [UserController::class, 'loadCreatePost'])->middlewar
 Route::get('/edit/post/{post_id}', [UserController::class, 'loadEditPost'])->middleware('user');
 Route::get('/view/post/{id}', [UserController::class, 'loadPostPage'])->middleware('user');
 Route::get('/profile', [UserController::class, 'loadProfile'])->middleware('user');
+Route::get('/view/profile/{user_id}', [UserController::class, 'loadGuestProfile'])->middleware('user');
 
 
 Route::get('/admin/dashboard', [AdminController::class, 'dashboardPage'])->middleware('admin');

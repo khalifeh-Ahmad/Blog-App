@@ -1,5 +1,5 @@
 <div class="like-container float-end">
-    <span class="likes-count">{{ $likesCount }}</span>
+    <span class="likes-count" style="font-weight: bold">{{ $likesCount }}</span>
     @if ($isLiked)
         <i class="bi bi-heart-fill like-icon liked" wire:click.prevent="likeUnLike"></i>
     @else

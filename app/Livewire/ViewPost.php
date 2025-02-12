@@ -9,13 +9,11 @@ use Livewire\Component;
 class ViewPost extends Component
 {
   public $posts;
-
   public function mount()
   {
     $this->posts = Post::join('users', 'users.id', '=', 'posts.user_id')
       ->orderBy('created_at', 'desc')->get(['users.name', 'users.id as followedId', 'posts.*']);
 
-    //dd($this->posts);
     //$this->posts = Post::orderBy('created_at', 'desc')->get();
   }
 
