@@ -137,7 +137,7 @@
             <div class="col-xl-4">
                 <div class="card related-posts">
                     <div class="card-body">
-                        <h5 class="card-title">Related Posts</h5>
+                        <h5 class="card-title">More Posts from {{ $post_data->name }}</h5>
                         <div class="news">
                             <div class="related-post-item">
                                 <img src="assets/img/news-1.jpg" alt="">

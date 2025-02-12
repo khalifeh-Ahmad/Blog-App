@@ -4,17 +4,26 @@ namespace App\Livewire;
 
 use App\Models\Post;
 use App\Models\PostViewers;
+use App\Models\UserProfile;
 use Livewire\Component;
 
 class ViewPost extends Component
 {
   public $posts;
+  //public $user_image;
+
   public function mount()
   {
     $this->posts = Post::join('users', 'users.id', '=', 'posts.user_id')
-      ->orderBy('created_at', 'desc')->get(['users.name', 'users.id as followedId', 'posts.*']);
+      ->leftJoin('user_profiles', 'user_profiles.user_id', '=', 'users.id')
+      ->orderBy('created_at', 'desc')
+      ->get(['users.name', 'users.id as followedId', 'user_profiles.image as author_image', 'posts.*']);
 
     //$this->posts = Post::orderBy('created_at', 'desc')->get();
+
+    //$this->user_image = UserProfile::where('user_id', auth()->user()->id)->first()->image;
+
+    //dd($this->user_image);
   }
 
 

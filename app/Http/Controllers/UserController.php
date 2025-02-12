@@ -15,31 +15,38 @@ class UserController extends Controller
   {
     return Auth::user();
   }
+  private function getUserImage($userId)
+  {
+    return UserProfile::where('user_id', $userId)->first()->image ?? 'profile-img.jpg';
+  }
 
   public function dashboardPage()
   {
     $loggedUser = $this->getLoggedUser();
-    $user_image = UserProfile::where('user_id',   $loggedUser->id)->first()->image;
+    $user_image = $this->getUserImage($loggedUser->id);
     return view('user.home-page', compact('loggedUser', 'user_image'));
   }
 
   public function loadMyPosts()
   {
     $loggedUser = $this->getLoggedUser();
-    return view('user.my-posts', compact('loggedUser'));
+    $user_image = $this->getUserImage($loggedUser->id);
+    return view('user.my-posts', compact('loggedUser', 'user_image'));
   }
 
   public function loadCreatePost()
   {
     $loggedUser = $this->getLoggedUser();
-    return view('user.create-post', compact('loggedUser'));
+    $user_image = $this->getUserImage($loggedUser->id);
+    return view('user.create-post', compact('loggedUser', 'user_image'));
   }
 
   public function loadEditPost($pId)
   {
     $loggedUser = $this->getLoggedUser();
     $post_data = Post::find($pId);
-    return view('user.edit-post', compact('loggedUser', 'post_data'));
+    $user_image = $this->getUserImage($loggedUser->id);
+    return view('user.edit-post', compact('loggedUser', 'post_data', 'user_image'));
   }
 
   public function loadPostPage($pId)
@@ -47,7 +54,7 @@ class UserController extends Controller
     $loggedUser = $this->getLoggedUser();
     $post_data = Post::join('users', 'users.id', '=', 'posts.user_id')
       ->where('posts.id', $pId)->first(['users.name', 'posts.*']);
-    $user_image = UserProfile::where('user_id',   $loggedUser->id)->first()->image; //(['image']);
+    $user_image = $this->getUserImage($loggedUser->id);
     //dd($user_image);
     return view('user.view-post', compact('loggedUser', 'post_data', 'user_image'));
   }
@@ -55,13 +62,17 @@ class UserController extends Controller
   public function loadProfile()
   {
     $loggedUser = $this->getLoggedUser();
-    return view('user.user-profile', compact('loggedUser'));
+    $user_image = $this->getUserImage($loggedUser->id);
+
+    return view('user.user-profile', compact('loggedUser', 'user_image'));
   }
 
   public function loadGuestProfile($id)
   {
     $loggedUser = $this->getLoggedUser();
     $guest_id = $id;
-    return view('user.guest-profile', compact('loggedUser', 'guest_id'));
+    $user_image = $this->getUserImage($loggedUser->id);
+
+    return view('user.guest-profile', compact('loggedUser', 'guest_id', 'user_image'));
   }
 }

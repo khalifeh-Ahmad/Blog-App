@@ -26,7 +26,7 @@
                 </div>
                 <div class="post-card-footer">
                     <a href="/view/profile/{{ $post->user_id }}" wire:navigate>
-                        <img src="{{ asset('storage/images/' . $post->photo) }}"
+                        <img src="{{ asset('storage/images/' . $post->author_image) }}"
                             style="width: 30px !important; height: 30px !important;" alt="user Image"
                             class="rounded-circle">
                         <span>🖊️ By {{ $post->name }}</span>
