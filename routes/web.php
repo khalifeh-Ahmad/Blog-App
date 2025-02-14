@@ -37,7 +37,4 @@ Route::get('/profile', [UserController::class, 'loadProfile'])->middleware('user
 Route::get('/view/profile/{user_id}', [UserController::class, 'loadGuestProfile'])->middleware('user');
 Route::get('/followers', [UserController::class, 'loadFollowersPage'])->middleware('user');
 
-//Route::get('/followers', FollowersPage::class)->name('followers')->middleware('user');
-
-
 Route::get('/admin/dashboard', [AdminController::class, 'dashboardPage'])->middleware('admin');
